@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="token"></div>
+    <div id="logout"></div>
+    <script type="text/javascript">
+        var fragment = window.location.hash.substring(1);
+        const token = fragment.split('&')[0].split('=');
+        if (token[0] == 'access_token') {
+            var str = token[1]
+            var child = document.createElement('div');
+            child.innerHTML = str;
+            child = child.firstChild;
+            document.getElementById('token').appendChild(child);
+
+            const divElement = document.createElement('a');
+            divElement.href = 'https://huelt.us.auth0.com/v2/logout?returnTo=http://localhost:8080&client_id=K49AQA9fyibCpmTkqUGYq2MQUYeQAgur';
+            divElement.innerHTML = "logout"
+            
+            document.getElementById('logout').appendChild(divElement);
+        }
+
+    </script>
+</body>
+
+</html>
