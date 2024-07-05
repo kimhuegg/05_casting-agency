@@ -32,8 +32,11 @@ def create_app(test_config=None):
   
   @app.route('/')
   def get_greeting():
-    greeting = "Hello" 
-    return greeting
+      excited = os.environ['EXCITED']
+      greeting = "Hello" 
+      if excited == 'true': 
+          greeting = greeting + "!!!!! You are doing great in this Udacity project."
+      return greeting
   
   @app.route('/login')
   def get_login():
