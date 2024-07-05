@@ -6,16 +6,16 @@ from flask_cors import CORS
 from models import db_drop_and_create_all, setup_db, Actor, Movie
 from auth import requires_auth, AuthError
 
-AUTH0_CALLBACK_URL = 'http://localhost:8080/login-results'
-AUTH0_DOMAIN = 'huelt.us.auth0.com'
-AUTH0_CLIENT_ID = 'K49AQA9fyibCpmTkqUGYq2MQUYeQAgur'
-API_AUDIENCE = 'udacity-capstone'
+# AUTH0_CALLBACK_URL = 'http://localhost:8080/login-results'
+# AUTH0_DOMAIN = 'huelt.us.auth0.com'
+# AUTH0_CLIENT_ID = 'K49AQA9fyibCpmTkqUGYq2MQUYeQAgur'
+# API_AUDIENCE = 'udacity-capstone'
 
 
-# AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
-# AUTH0_CLIENT_ID = os.environ.get('AUTH0_CLIENT_ID')
-# API_AUDIENCE = os.environ.get('API_AUDIENCE')
-# AUTH0_CALLBACK_URL = os.environ.get('AUTH0_CALLBACK_URL')
+AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+AUTH0_CLIENT_ID = os.environ.get('AUTH0_CLIENT_ID')
+API_AUDIENCE = os.environ.get('API_AUDIENCE')
+AUTH0_CALLBACK_URL = os.environ.get('AUTH0_CALLBACK_URL')
 
 def create_app(test_config=None):
   # create and configure the app

@@ -2,14 +2,14 @@
 export DATABASE_URL="postgres://u9ktkm73k3o8h8:pb04b32b7572aeb36338ce7f28200ad6bc98416ff2837355a7501b3a37d2abe49@c8lj070d5ubs83.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/db0jp24hdpkt09"
 export EXCITED="true"
 
-export AUTH0_CALLBACK_URL = 'http://localhost:8080/login-results'
+export AUTH0_CALLBACK_URL = 'https://huelt22-e02c8fef4dc1.herokuapp.com/login-results'
 export AUTH0_DOMAIN = 'huelt.us.auth0.com'
 export AUTH0_CLIENT_ID = 'K49AQA9fyibCpmTkqUGYq2MQUYeQAgur'
 export API_AUDIENCE= 'udacity-capstone'
 export ALGORITHMS='RS256'
 
 # database heroku
-export DATABASE_PATH = ''
+# export DATABASE_PATH = ''
 
 #JWTS for all the 3 roles/users: Latest with 24 hours expiration
 export ASSISTANT_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Il9paHdIMUdMUWxfX3d1WkVlUmp5SSJ9.eyJpc3MiOiJodHRwczovL2h1ZWx0LnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NjdmZjcyYjgwN2FlMDQwZGUzNTIwM2MiLCJhdWQiOiJ1ZGFjaXR5LWNhcHN0b25lIiwiaWF0IjoxNzIwMDIxNTY0LCJleHAiOjE3MjAwMjg3NjQsInNjb3BlIjoiIiwiYXpwIjoiSzQ5QVFBOWZ5aWJDcG1Ua3FVR1lxMk1RVVllUUFndXIiLCJwZXJtaXNzaW9ucyI6WyJ2aWV3OmFjdG9ycyIsInZpZXc6bW92aWVzIl19.JxWHSj84pv7W0MVZgfK3oBBiiqjWM8pcSwAevlTWsS-YAfM5vqYcvztA9ddVG8IZsBgkeSKJfMyxjQyB26cC6Gq7svzN7ynZ8bdKYqj03mneTvtyyrZIR9YffNYln12_GiXXkhg7DXNgUgEUH5gUZfgfMfHDaWGC9U5xd5IvH4n6h9nu7y03F-WT-HGG1LhIKgES1_ZAN0FwkxZldOeCxjD70vc09YKL-Bz5p-HJwp650qN6AXAoyYDRLOOUZXeFAy_Enykoa-7FtsKbwh_kX34yezLAh0oB2XUxHC1eY1JXgqhnlXWro5H4VLI5Fek7Rlq36ZgN6fP9TH_fDggV4Q'
