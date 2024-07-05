@@ -10,17 +10,24 @@ from flask_sqlalchemy import SQLAlchemy
 
 DB_PATH = os.environ['DATABASE_URL']
 
+
+DB_PATH = os.environ['DATABASE_URL']
+if DB_PATH.startswith("postgres://"):
+  DB_PATH = DB_PATH.replace("postgres://", "postgresql://", 1)
+
 db = SQLAlchemy()
+
+def db_drop_and_create_all():
+    db.drop_all()
+    db.create_all()
 
 def setup_db(app, database_path=DB_PATH):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
+    db_drop_and_create_all()
 
-def db_drop_and_create_all():
-    db.drop_all()
-    db.create_all()
 
 class Movie(db.Model):  
     __tablename__ = 'movies'
