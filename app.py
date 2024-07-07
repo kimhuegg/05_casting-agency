@@ -14,6 +14,7 @@ AUTH0_CALLBACK_URL = os.getenv('AUTH0_CALLBACK_URL', 'http://localhost:8080/logi
 def create_app(test_config=None):
   app = Flask(__name__)
   CORS(app)
+  print('Creating app ...')
   setup_db(app)
   # db_drop_and_create_all()
 
