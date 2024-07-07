@@ -2,16 +2,14 @@ import os
 from sqlalchemy import Column, String, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
 
-# DB_HOST = os.getenv('DB_HOST', 'localhost:5432')
-# DB_USER = os.getenv('DB_USER', 'lethihue')
-# DB_PASSWORD = os.getenv('DB_PASSWORD', '')
-# DB_NAME = os.getenv('DB_NAME', "capstone")
-# DB_PATH = "postgres://{}:{}@{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
+DB_HOST = os.getenv('DB_HOST', 'localhost:5432')
+DB_USER = os.getenv('DB_USER', 'lethihue')
+DB_PASSWORD = os.getenv('DB_PASSWORD', '')
+DB_NAME = os.getenv('DB_NAME', "capstone")
+DB_PATH_LOCAL = "postgres://{}:{}@{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 
-DB_PATH = os.environ['DATABASE_URL']
+DB_PATH = os.environ('DATABASE_URL', DB_PATH_LOCAL)
 
-
-DB_PATH = os.environ['DATABASE_URL']
 if DB_PATH.startswith("postgres://"):
   DB_PATH = DB_PATH.replace("postgres://", "postgresql://", 1)
 

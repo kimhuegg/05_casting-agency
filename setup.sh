@@ -1,5 +1,5 @@
 #!/bin/bash
-export DATABASE_URL="postgres://u9ktkm73k3o8h8:pb04b32b7572aeb36338ce7f28200ad6bc98416ff2837355a7501b3a37d2abe49@c8lj070d5ubs83.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/db0jp24hdpkt09"
+export DATABASE_URL="postgres://uckmjp8qit61mj:p355a95c375c64598fa890293eaa13346e4e3ff9cb7320a3da388cf0c9e998b41@c5p86clmevrg5s.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dchi4l9vu71c9c"
 export EXCITED="true"
 
 export AUTH0_CALLBACK_URL = 'https://huelt22-e02c8fef4dc1.herokuapp.com/login-results'
