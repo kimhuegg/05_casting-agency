@@ -1,16 +1,6 @@
 import os
-from sqlalchemy import Column, String, create_engine, Integer, DateTime
+from sqlalchemy import Column, String, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
-import json
-
-
-
-
-
-'''
-setup_db(app)
-    binds a flask application and a SQLAlchemy service
-'''
 
 DB_HOST = os.getenv('DB_HOST', 'localhost:5432')
 DB_USER = os.getenv('DB_USER', 'lethihue')
@@ -18,7 +8,8 @@ DB_PASSWORD = os.getenv('DB_PASSWORD', '')
 DB_NAME = os.getenv('DB_NAME', "capstone")
 DB_PATH_LOCAL = "postgres://{}:{}@{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 
-DB_PATH = os.environ['DATABASE_URL']
+DB_PATH = os.getenv('DATABASE_URL', DB_PATH_LOCAL)
+
 if DB_PATH.startswith("postgres://"):
   DB_PATH = DB_PATH.replace("postgres://", "postgresql://", 1)
 
@@ -33,8 +24,7 @@ def setup_db(app, database_path=DB_PATH):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db.create_all()
-    # db_drop_and_create_all()
+    db_drop_and_create_all()
 
 
 '''
