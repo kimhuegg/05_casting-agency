@@ -3,11 +3,9 @@ from sqlalchemy import Column, String, create_engine, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_path = os.environ['DATABASE_URL']
-if database_path.startswith("postgres://"):
-  database_path = database_path.replace("postgres://", "postgresql://", 1)
 
-db = SQLAlchemy()
+
+
 
 '''
 setup_db(app)
@@ -21,6 +19,10 @@ DB_NAME = os.getenv('DB_NAME', "capstone")
 DB_PATH_LOCAL = "postgres://{}:{}@{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 
 DB_PATH = os.environ['DATABASE_URL']
+if DB_PATH.startswith("postgres://"):
+  DB_PATH = DB_PATH.replace("postgres://", "postgresql://", 1)
+
+db = SQLAlchemy()
 
 def db_drop_and_create_all():
     db.drop_all()
