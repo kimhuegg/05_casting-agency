@@ -15,16 +15,16 @@ if DB_PATH.startswith("postgres://"):
 
 db = SQLAlchemy()
 
-def db_drop_and_create_all():
-    db.drop_all()
-    db.create_all()
+# def db_drop_and_create_all():
+#     db.drop_all()
+    
 
 def setup_db(app, database_path=DB_PATH):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db_drop_and_create_all()
+    db.create_all()
 
 
 '''
