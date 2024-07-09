@@ -20,7 +20,7 @@ DB_PASSWORD = os.getenv('DB_PASSWORD', '')
 DB_NAME = os.getenv('DB_NAME', "capstone")
 DB_PATH_LOCAL = "postgres://{}:{}@{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 
-DB_PATH = os.getenv('DATABASE_URL', DB_PATH_LOCAL)
+DB_PATH = os.environ['DATABASE_URL']
 
 def db_drop_and_create_all():
     db.drop_all()
@@ -31,7 +31,8 @@ def setup_db(app, database_path=DB_PATH):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db_drop_and_create_all()
+    db.create_all()
+    # db_drop_and_create_all()
 
 
 '''
