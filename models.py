@@ -1,31 +1,30 @@
 import os
-from sqlalchemy import Column, String, Integer, DateTime
+from sqlalchemy import Column, String, create_engine, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
+import json
 
-DB_HOST = os.getenv('DB_HOST', 'localhost:5432')
-DB_USER = os.getenv('DB_USER', 'lethihue')
-DB_PASSWORD = os.getenv('DB_PASSWORD', '')
-DB_NAME = os.getenv('DB_NAME', "capstone")
-DB_PATH_LOCAL = "postgres://{}:{}@{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
-
-DB_PATH = os.getenv('DATABASE_URL', DB_PATH_LOCAL)
-
-if DB_PATH.startswith("postgres://"):
-  DB_PATH = DB_PATH.replace("postgres://", "postgresql://", 1)
+database_path = os.environ['DATABASE_URL']
+if database_path.startswith("postgres://"):
+  database_path = database_path.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
 
-def db_drop_and_create_all():
-    db.drop_all()
-    db.create_all()
-
-def setup_db(app, database_path=DB_PATH):
+'''
+setup_db(app)
+    binds a flask application and a SQLAlchemy service
+'''
+def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db_drop_and_create_all()
+    db.create_all()
 
+
+'''
+Person
+Have title and release year
+'''
 
 class Movie(db.Model):  
     __tablename__ = 'movies'

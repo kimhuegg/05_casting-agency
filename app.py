@@ -16,14 +16,12 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
 
-    #-----------view
-
     @app.route('/')
     def get_greeting():
         excited = os.environ['EXCITED']
         greeting = "Hello" 
         if excited == 'true': 
-            greeting = greeting + "!!!!! You are doing great in this Udacity project. <a href=\"https://huelt.us.auth0.com/login\">Login</a>"
+            greeting = greeting + "!!!!! You are doing great in this Udacity project."
         return greeting
 
     

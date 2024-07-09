@@ -1,9 +1,9 @@
 #!/bin/bash
 #local database url
-# export DATABASE_URL="postgresql://postgres@localhost:5432/postgres"
+export DATABASE_URL="postgresql://postgres@localhost:5432/postgres"
 
 #heroku url
-export DATABASE_URL="postgres://uckmjp8qit61mj:p355a95c375c64598fa890293eaa13346e4e3ff9cb7320a3da388cf0c9e998b41@c5p86clmevrg5s.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dchi4l9vu71c9c"
+#export DATABASE_URL="postgres://uckmjp8qit61mj:p355a95c375c64598fa890293eaa13346e4e3ff9cb7320a3da388cf0c9e998b41@c5p86clmevrg5s.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dchi4l9vu71c9c"
 export EXCITED="true"
 
 #Auth0
